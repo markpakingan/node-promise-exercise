@@ -28,19 +28,19 @@ function drawCard() {
 // 2. Make a request to the deck of cards API to request a single card from a newly shuffled deck. 
 // Once you have the card, make a request to the same API to get one more card from the same deck.
 
-// $.getJSON(`${baseURL}/new/draw/?count=1`).then(response =>{
-//     const card = response.cards[0];
-//     console.log(`Your first card is ${card.value} ${card.suit}`);
-//     // console.log(response.deck_id);
-//     let deck_id = response.deck_id
+$.getJSON(`${baseURL}/new/draw/?count=1`).then(response =>{
+    const card = response.cards[0];
+    console.log(`Your first card is ${card.value} ${card.suit}`);
+    // console.log(response.deck_id);
+    let deck_id = response.deck_id
 
-//     // calls the 2nd API
-//     return $.getJSON(`${baseURL}/${deck_id}/draw/?count=1`)
-// } ).then(response =>{
-//     const card = response.cards[0];
-//     console.log(`Your second card is ${card.value} ${card.suit}`);
-// })
-// .catch(error => console.error(error));
+    // calls the 2nd API
+    return $.getJSON(`${baseURL}/${deck_id}/draw/?count=1`)
+} ).then(response =>{
+    const card = response.cards[0];
+    console.log(`Your second card is ${card.value} ${card.suit}`);
+})
+.catch(error => console.error(error));
 
 
 
